@@ -27,8 +27,13 @@ router.post("/register", async (req, res) => {
 // Obtener todos los usuarios
 
 router.get("/", async (req,res) =>{
-const usuario = await Usuario.find();
-res.json(usuarios);
+    try{
+        const usuarios = await Usuario.find();
+        res.json(usuarios);
+    } catch (error){
+        res.status(500).json({error: error.message})
+    }
 });
+
 
 module.exports = router

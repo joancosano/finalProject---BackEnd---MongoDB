@@ -4,10 +4,12 @@ const mongose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const usuarioRoutes = require("./routes/usuarios");
+const listaRoutes = require("./routes/listas")
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/usuarios", usuarioRoutes);
+app.use("/api/listas", listaRoutes);
 
 mongose.connect(process.env.MONGO_URI)
 .then(()=>console.log("Mongo conectado"))
