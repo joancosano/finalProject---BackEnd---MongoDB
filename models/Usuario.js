@@ -7,8 +7,18 @@ const usuarioSchema = new mongoose.Schema({
     poblacion: String,
     codigoPostal: String,
     telefono: String,
-    correo: String,
-    usuario: String,
+    correo:{
+        type:String,
+        required:true,
+        unique:true,
+        lowercase:true,
+        trim:true
+},
+    usuario: {
+        type: String,
+        required: true,
+        unique: true
+    },
     password: String,
 });
 
