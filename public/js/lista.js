@@ -8,11 +8,10 @@ const usuarioActivo = paramsUrl.get("usuario");
 const usuario = recuperarUsuario(usuarioActivo);
 
 // id de la lista
-const idDesdeUrl = paramsUrl.get("idLista");
+const idDesdeUrl = paramsUrl.get("id");
 const idSesion = sessionStorage.getItem("idUltimaLista");
 
 const idLista = idDesdeUrl ?? idSesion;
-
 
 const main = document.querySelector("main");
 
@@ -23,7 +22,7 @@ const footer = createFooter();
 
 
 async function cargarLista(id){
-    console.log("ID lista:", idLista);
+    console.log("ID lista:", id);
 
     const respuesta = await fetch(`http://localhost:3000/api/listas/lista/${id}`);
     console.log("ID:", id);
